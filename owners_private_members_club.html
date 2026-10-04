@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWNERS — Private Members Club</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FFFDF5',
+                            100: '#FFF7D6',
+                            200: '#FDEBA6',
+                            300: '#FCE082',
+                            400: '#E6C665',
+                            500: '#D4AF37',
+                            600: '#AA8828',
+                            700: '#80641C',
+                            800: '#544110',
+                            900: '#3D2F0A',
+                        },
+                        onyx: '#08080A',
+                        obsidian: '#101014',
+                        darkcard: 'rgba(16, 16, 20, 0.75)',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Luxury Background with Black Marble Texture and Gradient Depths */
+        .bg-marble {
+            background-color: #08080a;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 85% 90%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 10% 50%, rgba(20, 20, 25, 0.9) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(255, 255, 255, 0.012) 25%, transparent 25%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 80px 80px, 80px 80px;
+        }
+
+        /* Subtle Gold Borders & Metallic Gradients */
+        .gold-border-gradient {
+            border-image: linear-gradient(to bottom right, rgba(212, 175, 55, 0.6), rgba(128, 100, 28, 0.2), rgba(212, 175, 55, 0.4)) 1;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-glow-lg {
+            box-shadow: 0 0 60px -10px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Custom Gold Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d2f0a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #aa8828;
+        }
+
+        /* View Animations */
+        .view-transition {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .view-hidden {
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+        }
+
+        .view-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-onyx text-gray-200 antialiased selection:bg-gold-500/30 selection:text-gold-300 min-h-screen flex flex-col justify-between overflow-x-hidden font-sans">
+
+    <!-- Ambient Lighting Backdrop -->
+    <div class="fixed inset-0 bg-marble pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-gold-500/10 via-gold-600/5 to-transparent blur-[140px] pointer-events-none z-0"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="relative z-20 border-b border-gold-500/15 bg-onyx/70 backdrop-blur-xl px-6 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo & Crest -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('landing')">
+                <div class="relative w-9 h-9 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.15)] group-hover:border-gold-500 transition-all">
+                    <svg class="w-5 h-5 text-gold-400" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="50" cy="50" r="44" class="opacity-40" />
+                        <circle cx="50" cy="50" r="38" stroke-dasharray="2 4" />
+                        <text x="50" y="64" font-family="Cinzel" font-size="42" font-weight="800" fill="currentColor" text-anchor="middle">O</text>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg tracking-[0.25em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-400 to-gold-600 uppercase leading-none">
+                        OWNERS
+                    </span>
+                    <span class="text-[8px] tracking-[0.3em] text-gold-500/70 uppercase mt-0.5 font-medium">Private Club</span>
+                </div>
+            </div>
+
+            <!-- Top Right Dynamic Actions -->
+            <div id="navRightSection" class="flex items-center space-x-4">
+                <!-- Status Badge (Shown when authenticated) -->
+                <div id="navMemberBadge" class="hidden flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/5 text-[9px] sm:text-[10px] tracking-[0.2em] text-gold-300 uppercase">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="navMemberName" class="font-semibold">VERIFIED MEMBER</span>
+                </div>
+
+                <!-- Security Info Button -->
+                <button onclick="toggleSecurityModal(true)" class="text-[10px] sm:text-xs tracking-[0.15em] text-gray-400 hover:text-gold-300 border border-gold-500/20 hover:border-gold-500/50 bg-obsidian/60 px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5">
+                    <svg class="w-3.5 h-3.5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                    <span class="hidden sm:inline">SECURITY</span> ARCHITECTURE
+                </button>
+
+                <!-- Logout Button (Shown when authenticated) -->
+                <button id="navLogoutBtn" onclick="logout()" class="hidden text-xs tracking-[0.2em] text-rose-400/80 hover:text-rose-300 border border-rose-500/20 hover:border-rose-500/50 bg-rose-950/20 px-3 py-1.5 rounded-md transition-colors uppercase">
+                    LOGOUT
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Router Wrapper -->
+    <div class="relative z-10 flex-1 flex items-center justify-center py-10 px-4 sm:px-6">
+
+        <!-- VIEW 1: LANDING / VERIFICATION PAGE -->
+        <section id="landingView" class="view-transition view-visible w-full max-w-xl">
+            <div class="text-center mb-8">
+                <!-- Luxury Gold Crest -->
+                <div class="inline-flex items-center justify-center p-4 rounded-full bg-gold-500/5 border border-gold-500/20 mb-5 shadow-[0_0_30px_rgba(212,175,55,0.12)] animate-float">
+                    <svg class="w-12 h-12 text-gold-400" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="50" cy="50" r="46" class="opacity-30" />
+                        <circle cx="50" cy="50" r="40" stroke-dasharray="3 4" class="opacity-60" />
+                        <path d="M50 14 L54 24 L65 24 L56 31 L60 42 L50 35 L40 42 L44 31 L35 24 L46 24 Z" fill="currentColor" class="opacity-80"/>
+                        <text x="50" y="72" font-family="Cinzel" font-size="36" font-weight="800" fill="currentColor" text-anchor="middle">O</text>
+                    </svg>
+                </div>
+                <h1 class="font-serif text-3xl sm:text-5xl tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-gold-100 via-gold-300 to-gold-600 font-bold uppercase drop-shadow-sm">
+                    OWNERS
+                </h1>
+                <p class="text-[10px] sm:text-xs tracking-[0.4em] text-gold-500/80 uppercase mt-2 font-medium">
+                    The Owners Club &bull; Private Membership
+                </p>
+            </div>
+
+            <!-- Matte Black / Glass Card -->
+            <div class="relative rounded-2xl bg-darkcard backdrop-blur-xl border border-gold-500/20 p-8 sm:p-12 gold-glow overflow-hidden transition-all duration-500">
+                
+                <!-- Gold Accent Corner Lines -->
+                <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold-500/40 rounded-tl-2xl"></div>
+                <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold-500/40 rounded-tr-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold-500/40 rounded-bl-2xl"></div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold-500/40 rounded-br-2xl"></div>
+
+                <!-- Subheading Badges -->
+                <div class="flex justify-between items-center text-[9px] sm:text-[10px] tracking-[0.25em] text-gray-400 uppercase border-b border-gold-500/10 pb-4 mb-8">
+                    <span>EST. MMXXVI</span>
+                    <span class="text-gold-400 font-semibold px-2 py-0.5 rounded bg-gold-500/10 border border-gold-500/20">CONFIDENTIAL</span>
+                    <span>MEMBER ACCESS</span>
+                </div>
+
+                <div class="text-center mb-8">
+                    <h2 class="font-serif text-xl sm:text-2xl text-gold-300 tracking-wider font-semibold uppercase">
+                        Member Verification
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-2 tracking-wide font-light">
+                        Exclusive access reserved strictly for approved members.
+                    </p>
+                </div>
+
+                <!-- Verification Form -->
+                <form id="verifyForm" onsubmit="handleVerification(event)" class="space-y-6">
+                    <div class="relative">
+                        <label for="memberName" class="block text-[10px] tracking-[0.2em] text-gold-400/90 uppercase mb-2 font-medium">
+                            Enter Your Member Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="memberName" 
+                            required
+                            placeholder="Full Name"
+                            autocomplete="off"
+                            class="w-full bg-onyx/90 border border-gold-500/20 rounded-xl px-5 py-4 text-sm text-gold-100 placeholder-gray-600 focus:outline-none focus:border-gold-500/60 focus:ring-1 focus:ring-gold-500/40 transition-all tracking-wide"
+                        >
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        id="submitBtn"
+                        class="w-full relative group overflow-hidden rounded-xl p-[1px] font-serif uppercase tracking-[0.25em] text-xs font-semibold focus:outline-none shadow-lg transition-transform active:scale-[0.99]"
+                    >
+                        <span class="absolute inset-0 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 group-hover:opacity-90 transition-opacity"></span>
+                        <span class="relative block bg-onyx group-hover:bg-transparent text-gold-300 group-hover:text-onyx py-4 px-6 rounded-[11px] transition-all duration-300 flex items-center justify-center space-x-2">
+                            <span id="btnText">VERIFY MEMBERSHIP</span>
+                            <span class="text-base leading-none group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Dynamic Status Box -->
+                <div id="statusContainer" class="hidden mt-6 text-center p-4 rounded-xl border transition-all duration-300">
+                    <p id="statusTitle" class="font-serif text-sm tracking-[0.2em] font-bold uppercase"></p>
+                    <p id="statusSubtitle" class="text-[11px] tracking-wider mt-1 uppercase"></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VIEW 2: PRIVATE MEMBERS DASHBOARD -->
+        <section id="dashboardView" class="view-transition view-hidden w-full max-w-7xl my-auto">
+            
+            <!-- Dashboard Welcome Banner -->
+            <div class="rounded-2xl bg-darkcard border border-gold-500/20 p-8 sm:p-12 mb-10 backdrop-blur-xl relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                <div class="absolute -right-20 -top-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute top-0 right-0 p-8 opacity-10 hidden md:block pointer-events-none">
+                    <svg class="w-64 h-64 text-gold-400" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                        <circle cx="50" cy="50" r="44" stroke-width="1"/>
+                        <text x="50" y="68" font-family="Cinzel" font-size="50" font-weight="700" fill="currentColor" text-anchor="middle">O</text>
+                    </svg>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-[10px] tracking-[0.25em] text-gold-300 uppercase mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                        <span>PRIVILEGED MEMBER PORTAL</span>
+                    </div>
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold text-gold-100 tracking-wider uppercase mb-3">
+                        WELCOME TO OWNERS
+                    </h1>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+                        Greetings, <span id="memberNameDashboard" class="text-gold-300 font-semibold uppercase tracking-wide">Member</span>. You have entered the private digital lounge. Below are your exclusive benefits, concierge options, and private club privileges.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Club Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                
+                <!-- Card 1: Concierge -->
+                <div class="rounded-2xl bg-darkcard border border-gold-500/15 p-6 hover:border-gold-500/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gold-500 font-serif text-2xl font-bold">01</span>
+                            <div class="p-2 rounded-lg bg-gold-500/10 text-gold-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-lg text-gold-200 tracking-wide uppercase mb-2 group-hover:text-gold-400 transition-colors">
+                            Private Concierge 24/7
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
+                            Direct line to dedicated lifestyle managers for luxury travel, yacht charters, and reservations worldwide.
+                        </p>
+                    </div>
+                    <button onclick="openFeatureModal('Private Concierge', 'Your dedicated concierge manager is on standby. Request travel bookings, fine dining reservations, or custom requests directly.')" class="text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold hover:text-gold-200 transition-colors flex items-center space-x-1">
+                        <span>CONNECT CONCIERGE</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Card 2: Gatherings -->
+                <div class="rounded-2xl bg-darkcard border border-gold-500/15 p-6 hover:border-gold-500/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gold-500 font-serif text-2xl font-bold">02</span>
+                            <div class="p-2 rounded-lg bg-gold-500/10 text-gold-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-lg text-gold-200 tracking-wide uppercase mb-2 group-hover:text-gold-400 transition-colors">
+                            Private Gatherings
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
+                            Confidential summits, luxury galas, and closed-door networking events across Paris, London, New York & Dubai.
+                        </p>
+                    </div>
+                    <button onclick="openFeatureModal('Private Gatherings', 'Upcoming Event: Annual OWNERS Winter Gala in St. Moritz. Calendar details and invitation passes have been sent to your primary contact email.')" class="text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold hover:text-gold-200 transition-colors flex items-center space-x-1">
+                        <span>VIEW EVENT CALENDAR</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Card 3: The Vault -->
+                <div class="rounded-2xl bg-darkcard border border-gold-500/15 p-6 hover:border-gold-500/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gold-500 font-serif text-2xl font-bold">03</span>
+                            <div class="p-2 rounded-lg bg-gold-500/10 text-gold-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-lg text-gold-200 tracking-wide uppercase mb-2 group-hover:text-gold-400 transition-colors">
+                            The Vault
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
+                            Proprietary market insights, private equity allocations, and confidential investment briefings.
+                        </p>
+                    </div>
+                    <button onclick="openFeatureModal('The Vault', 'Accessing encrypted documents... Quarter 4 Private Market Outlook and Exclusive Venture Syndicates now available for member download.')" class="text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold hover:text-gold-200 transition-colors flex items-center space-x-1">
+                        <span>ACCESS REPORTS</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Card 4: Lounge Booking -->
+                <div class="rounded-2xl bg-darkcard border border-gold-500/15 p-6 hover:border-gold-500/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-gold-500 font-serif text-2xl font-bold">04</span>
+                            <div class="p-2 rounded-lg bg-gold-500/10 text-gold-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-lg text-gold-200 tracking-wide uppercase mb-2 group-hover:text-gold-400 transition-colors">
+                            Private Club Lounges
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
+                            Reserve private meeting rooms, executive dining spaces, and cigar lounges at premier global clubhouses.
+                        </p>
+                    </div>
+                    <button onclick="openFeatureModal('Private Club Lounges', 'Select destination clubhouse: London (Mayfair), Paris (8th Arr.), Tokyo (Ginza), New York (Madison Ave).')" class="text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold hover:text-gold-200 transition-colors flex items-center space-x-1">
+                        <span>RESERVE SPACE</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Member Directory Summary -->
+            <div class="rounded-2xl bg-darkcard border border-gold-500/15 p-6 sm:p-8 backdrop-blur-xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gold-500/10 pb-4 mb-6">
+                    <div>
+                        <h3 class="font-serif text-xl text-gold-300 uppercase font-semibold">Registry Access</h3>
+                        <p class="text-xs text-gray-400 mt-1">Verified status granted to approved club members</p>
+                    </div>
+                    <span class="mt-2 sm:mt-0 px-3 py-1 text-[10px] tracking-[0.2em] uppercase rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                        ACTIVE SESSION
+                    </span>
+                </div>
+                <div class="text-xs text-gray-400 leading-relaxed">
+                    You are logged in with verified privileges. Ensure to logout when accessing from shared or unencrypted terminals to maintain executive confidentiality.
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- SECURITY NOTICE MODAL -->
+    <div id="securityModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="relative w-full max-w-xl rounded-2xl bg-obsidian border border-gold-500/30 p-6 sm:p-8 shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="toggleSecurityModal(false)" class="absolute top-4 right-4 text-gray-400 hover:text-gold-300 transition-colors text-xl p-2">
+                &times;
+            </button>
+
+            <div class="flex items-center space-x-3 text-gold-400 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <h3 class="font-serif text-lg tracking-wider font-semibold uppercase">Security & Authentication Notice</h3>
+            </div>
+
+            <div class="space-y-4 text-xs text-gray-300 leading-relaxed font-light">
+                <div class="p-3 rounded-lg bg-gold-500/5 border border-gold-500/20">
+                    <p class="font-semibold text-gold-300 uppercase text-[10px] tracking-wider mb-1">Current Demo Architecture (Client-Side)</p>
+                    <p>This single-file demonstration uses normalized in-memory array validation and <code class="text-gold-200">sessionStorage</code> for smooth interactive preview. Input names are checked case-insensitively without requiring external server calls.</p>
+                </div>
+
+                <div class="p-3 rounded-lg bg-onyx border border-gray-800">
+                    <p class="font-semibold text-gray-200 uppercase text-[10px] tracking-wider mb-1">Production Security Best Practices</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-400">
+                        <li><strong>Server-Side Validation:</strong> Verification request dispatched to serverless endpoints (e.g. Node.js/Express, Supabase Edge Functions).</li>
+                        <li><strong>Encrypted Database:</strong> Member credentials stored in hashed/encrypted SQL/NoSQL vaults.</li>
+                        <li><strong>Secure Auth Token:</strong> Issuance of signed, HTTP-Only <code class="text-gold-400">JWT</code> cookies or OAuth 2.0 / OIDC session tokens to prevent token tampering.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 text-right">
+                <button onclick="toggleSecurityModal(false)" class="px-5 py-2.5 rounded-xl bg-gold-500 text-onyx font-semibold text-xs tracking-wider uppercase hover:bg-gold-400 transition-colors">
+                    ACKNOWLEDGE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC FEATURE MODAL -->
+    <div id="featureModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="relative w-full max-w-md rounded-2xl bg-obsidian border border-gold-500/30 p-6 sm:p-8 shadow-2xl text-center">
+            <div class="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <h3 id="featureModalTitle" class="font-serif text-lg tracking-wider font-semibold uppercase text-gold-300 mb-2"></h3>
+            <p id="featureModalDesc" class="text-xs text-gray-300 leading-relaxed mb-6 font-light"></p>
+            <button onclick="closeFeatureModal()" class="w-full py-3 rounded-xl bg-onyx border border-gold-500/30 text-gold-300 font-semibold text-xs tracking-wider uppercase hover:bg-gold-500/10 transition-colors">
+                CLOSE WINDOW
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-6 px-6 text-center border-t border-gold-500/10 bg-onyx/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-[10px] tracking-[0.25em] text-gray-500 uppercase space-y-2 sm:space-y-0">
+            <p>&copy; MMXXVI OWNERS PRIVATE MEMBERS CLUB. ALL RIGHTS RESERVED.</p>
+            <p class="text-gold-500/60">CONFIDENTIAL ACCESS SYSTEM</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        /**
+         * OWNERS — Private Members Club
+         * State Management, View Router & Verification Logic
+         */
+
+        // Approved Registry List (Normalized during check)
+        const APPROVED_MEMBERS = [
+            "youssef el gamed",
+            "7amotshy bazabeezo",
+            "anas el demeshky",
+            "thaboty",
+            "yassin ele beydereb",
+            "jordans",
+            "mourad blabn",
+            "bolbol",
+            "samir abo 7ob kebeer",
+            "hoba tito mambo",
+            "moatasem el gamed"
+        ];
+
+        // App State
+        let currentUser = null;
+
+        /**
+         * Cleans & normalizes strings for case-insensitive and whitespace-flexible matching
+         */
+        function normalizeString(str) {
+            return str ? str.trim().toLowerCase().replace(/\s+/g, ' ') : '';
+        }
+
+        /**
+         * View Router
+         */
+        function navigateTo(viewName) {
+            const landingView = document.getElementById('landingView');
+            const dashboardView = document.getElementById('dashboardView');
+            const navMemberBadge = document.getElementById('navMemberBadge');
+            const navLogoutBtn = document.getElementById('navLogoutBtn');
+
+            if (viewName === 'dashboard' && currentUser) {
+                landingView.classList.remove('view-visible');
+                landingView.classList.add('view-hidden');
+
+                dashboardView.classList.remove('view-hidden');
+                dashboardView.classList.add('view-visible');
+
+                document.getElementById('navMemberName').textContent = currentUser;
+                document.getElementById('memberNameDashboard').textContent = currentUser;
+                navMemberBadge.classList.remove('hidden');
+                navLogoutBtn.classList.remove('hidden');
+            } else {
+                dashboardView.classList.remove('view-visible');
+                dashboardView.classList.add('view-hidden');
+
+                landingView.classList.remove('view-hidden');
+                landingView.classList.add('view-visible');
+
+                navMemberBadge.classList.add('hidden');
+                navLogoutBtn.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Handles Member Name Verification Form Submit
+         */
+        function handleVerification(event) {
+            event.preventDefault();
+
+            const inputField = document.getElementById('memberName');
+            const statusContainer = document.getElementById('statusContainer');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusSubtitle = document.getElementById('statusSubtitle');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+
+            const rawValue = inputField.value;
+            const normalizedInput = normalizeString(rawValue);
+
+            // Reset status state
+            statusContainer.className = "mt-6 text-center p-4 rounded-xl border transition-all duration-300";
+
+            // Check against approved member list
+            const matchedMember = APPROVED_MEMBERS.find(member => normalizeString(member) === normalizedInput);
+
+            if (matchedMember) {
+                // Success Response
+                statusContainer.classList.add('bg-emerald-950/40', 'border-emerald-500/40', 'text-emerald-400');
+                statusTitle.textContent = "MEMBERSHIP VERIFIED";
+                statusSubtitle.textContent = "ACCESS GRANTED ✓";
+                statusSubtitle.className = "text-[11px] tracking-wider mt-1 uppercase text-emerald-300";
+                statusContainer.classList.remove('hidden');
+
+                currentUser = rawValue.trim();
+                sessionStorage.setItem('OWNERS_SESSION', currentUser);
+
+                // Button loading effect
+                submitBtn.disabled = true;
+                btnText.textContent = "AUTHENTICATING...";
+
+                setTimeout(() => {
+                    navigateTo('dashboard');
+                    submitBtn.disabled = false;
+                    btnText.textContent = "VERIFY MEMBERSHIP";
+                    inputField.value = "";
+                    statusContainer.classList.add('hidden');
+                }, 1200);
+
+            } else {
+                // Denied Response
+                statusContainer.classList.add('bg-rose-950/40', 'border-rose-500/40', 'text-rose-400');
+                statusTitle.textContent = "ACCESS DENIED";
+                statusSubtitle.textContent = "MEMBER NOT FOUND IN REGISTRY";
+                statusSubtitle.className = "text-[11px] tracking-wider mt-1 uppercase text-rose-300/80";
+                statusContainer.classList.remove('hidden');
+            }
+        }
+
+        /**
+         * Logout User & Reset State
+         */
+        function logout() {
+            currentUser = null;
+            sessionStorage.removeItem('OWNERS_SESSION');
+            navigateTo('landing');
+        }
+
+        /**
+         * Security Modal Controls
+         */
+        function toggleSecurityModal(show) {
+            const modal = document.getElementById('securityModal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Feature Interaction Modal Controls
+         */
+        function openFeatureModal(title, description) {
+            document.getElementById('featureModalTitle').textContent = title;
+            document.getElementById('featureModalDesc').textContent = description;
+            document.getElementById('featureModal').classList.remove('hidden');
+        }
+
+        function closeFeatureModal() {
+            document.getElementById('featureModal').classList.add('hidden');
+        }
+
+        /**
+         * Session Restore on Load
+         */
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedSession = sessionStorage.getItem('OWNERS_SESSION');
+            if (savedSession) {
+                currentUser = savedSession;
+                navigateTo('dashboard');
+            }
+        });
+    </script>
+</body>
+</html>
